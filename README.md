@@ -13,7 +13,7 @@
 ## Usage
 ### calculating LISI metric with non-linear embedding
 
-Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package LISI metric can be calculated directly using non-linear embedding. The class **beene_model** contains all necessery function implemented
+Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package LISI metric can be calculated using non-linear embedding directly from the data. The class **beene_model** contains all necessery function implemented
 
 #### Description and parameters of major functions
 ```java
