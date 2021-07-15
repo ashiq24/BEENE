@@ -6,7 +6,7 @@ import numpy as np
 
 
 
-# creating Random data with 3000 sample and 100 genes per sample.
+# creating Random data with 3000 samples and 100 genes per sample.
 Xt = random.uniform(-1,1,(3000,100))
 # With 2 biological categories 
 yt = random.randint(0,2,3000)
