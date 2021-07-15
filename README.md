@@ -66,4 +66,8 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
       """
  
 ```
-An example if provided here [example_1.py](https://github.com/ashiq24/BEENE/blob/main/beene/example_1.py)
+An example if provided here for calculating LISI metric from data. [example_1.py](https://github.com/ashiq24/BEENE/blob/main/beene/example_1.py)
+
+### calculating kBET metric with non-linear embedding
+
+The [kBET](https://github.com/theislab/kBET/) does not have any python implementation available.
