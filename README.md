@@ -9,4 +9,9 @@
  ```console
   pip install -r requirements.txt
  ```
+ 
+## Usage
+### calculating LISI metric with non-linear embedding
+
+Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package LISI metric can be calculated directly using non-linear embedding.
 
