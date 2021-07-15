@@ -151,7 +151,8 @@ class beene_model:
 
         Parameters:
 
-        number_of_genes: int, Number of gene per sample in the data hidden_layer_dimensions: list, hidden_layer_dimensions[0] is the dimension of 1st hidden layer hidden_layer_dimensions[1] is the dimension of 2nd hidden layer.    
+        number_of_genes: int, Number of gene per sample in the data 
+        hidden_layer_dimensions: list, hidden_layer_dimensions[0] is the dimension of 1st hidden layer hidden_layer_dimensions[1] is the dimension of 2nd hidden layer.    
         embedding_dimension: int, Dimension of the BEENE Embedding
         number_of_batches: int, Number of classes of the Batch variable
         number_of_biological_variables: int,  Number of classes of the Biological variable
