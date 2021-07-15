@@ -24,14 +24,17 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
         
         Parameters:
         number_of_genes: int, Number of gene per sample in the data 
-        hidden_layer_dimensions: list, hidden_layer_dimensions[0] is the dimension of 1st hidden layer hidden_layer_dimensions[1] is the dimension of 2nd hidden layer.    
+        hidden_layer_dimensions: list, hidden_layer_dimensions[0] is the dimension of 1st hidden layer and 
+                                 hidden_layer_dimensions[1] is the dimension of 2nd hidden layer.
+       
         embedding_dimension: int, Dimension of the BEENE Embedding
         number_of_batches: int, Number of classes of the Batch variable
         number_of_biological_variables: int,  Number of classes of the Biological variable
         reconstruction_weight: float, weight for acutoencoder reconstruction loss
         batch_weight: float,  weight for batch label prediction error 
         bio_weight: float, weight of biological label prediction error
-        islarge : bool, Set to true for high dimensional dataset. Model uses additional dropout in the input layer for high dimensional data.
+        islarge : bool, Set to true for high dimensional dataset. Model uses additional dropout in the 
+                 input layer for high dimensional data.
         """
  evaluate_batch_iLisi(data, batch_var, bio_var, seed):
 
@@ -44,8 +47,13 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
       
       Parameters:
       data: 2D numpy array. Each row represents a sample and each column represents a Gene
-      batch_var: numpy array. For more than two categories, it must be one hot representation of batch labels for each of the samples in the data and must be a dense matrix. For two categories, it must be a 1D array of zeros and ones denoting batch association for each samples in the data
-      bio_var: numpy array. For more than two categories, it must be one hot representation of batch labels for each of the samples in the data and must be a dense matrix. For two categories,it must be a 1D array of zeros and ones denoting the biological class for each samples in the data
+      batch_var: numpy array. For more than two categories, it must be one hot representation of 
+                batch labels for each of the samples in the data and must be a dense matrix. For 
+                two categories, it must be a 1D array of zeros and ones denoting batch association 
+                for each samples in the data
+      bio_var: numpy array. For more than two categories, it must be one hot representation of batch 
+              labels for each of the samples in the data and must be a dense matrix. For two categories,
+              it must be a 1D array of zeros and ones denoting the biological class for each samples in the data
       seed: int. Random state for the split
       """
       
