@@ -13,5 +13,24 @@
 ## Usage
 ### calculating LISI metric with non-linear embedding
 
-Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package LISI metric can be calculated directly using non-linear embedding.
+Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package LISI metric can be calculated directly using non-linear embedding. The class **beene_model** contains all necessery function implemented
+
+The functions descriptions and parameters
+```java
+get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,  number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
+        """
+        Creates a BEENE model
+        
+        Parameters:
+        number_of_genes: int, Number of gene per sample in the data 
+        hidden_layer_dimensions: list, hidden_layer_dimensions[0] is the dimension of 1st hidden layer hidden_layer_dimensions[1] is the dimension of 2nd hidden layer.    
+        embedding_dimension: int, Dimension of the BEENE Embedding
+        number_of_batches: int, Number of classes of the Batch variable
+        number_of_biological_variables: int,  Number of classes of the Biological variable
+        reconstruction_weight: float, weight for acutoencoder reconstruction loss
+        batch_weight: float,  weight for batch label prediction error 
+        bio_weight: float, weight of biological label prediction error
+        islarge : bool, Set to true for high dimensional dataset. Model uses additional dropout in the input layer for high dimensional data.
+        """
+```
 
