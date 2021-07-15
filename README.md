@@ -68,14 +68,14 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
 ```
 An example if provided here for calculating LISI metric from data [example_1.py](https://github.com/ashiq24/BEENE/blob/main/beene/example_1.py). It is explained below.
 
-
+Importing beene package and other required modules for data loading, generation and preprocessing. The **beene.py** should in the same folder as your python script.
 ```python
 from beene import beene_model
 from numpy import random
 from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 ```
-
+Generating example data
 
 ```python
 # creating Random data with 3000 samples and 100 genes per sample.
@@ -85,7 +85,7 @@ yt = random.randint(0,2,3000)
 # With 3 batches
 bt = random.randint(0,3,3000)
 ```
-
+Creating the BEENE model
 
 ```python
 # Creating the BEENE model
@@ -101,10 +101,9 @@ my_model.get_hybrid_model_1(100,[50,20],5,3,2,1,2,1)
 
 ```
 
+Creating the onehot vector for the batch variables.
 
 ```python
-# Creating one hot vectors for batch variables
-
 bt = np.reshape(bt,(-1,1))
 enc_bi = OneHotEncoder(handle_unknown='ignore')
 enc_bi.fit(bt)
@@ -116,6 +115,7 @@ bt = bt.todense()
 
 ```
 
+Calculating LISI using nonlinear embedding.
 
 ```python
 # calculating iLisi values for the data
