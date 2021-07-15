@@ -19,7 +19,8 @@ The functions descriptions and parameters
 ```java
 get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,  number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
         """
-        Creates a BEENE model
+        Creates and return the BEENE model.
+       
         
         Parameters:
         number_of_genes: int, Number of gene per sample in the data 
@@ -32,5 +33,29 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
         bio_weight: float, weight of biological label prediction error
         islarge : bool, Set to true for high dimensional dataset. Model uses additional dropout in the input layer for high dimensional data.
         """
+ evaluate_batch_iLisi(data, batch_var, bio_var, seed):
+
+      """
+      Compute the iLISI metric on the data. The data is split into testm training, and validation
+      set. The model defined by the user is trained by the training set. The best performing model
+      is selected by the validation set. And the iLISI index is calculated on the test set.
+      
+      returns: iLISI values of each of the samples in the randomly choosen test set using BEENE embedding
+      
+      Parameters:
+      data: 2D numpy array. Each row represents a sample and each column represents a Gene
+      batch_var: numpy array. For more than two categories, it must be one hot representation of batch labels for each of the samples in the data and must be a dense matrix. For two categories, it must be a 1D array of zeros and ones denoting batch association for each samples in the data
+      bio_var: numpy array. For more than two categories, it must be one hot representation of batch labels for each of the samples in the data and must be a dense matrix. For two categories,it must be a 1D array of zeros and ones denoting the biological class for each samples in the data
+      seed: int. Random state for the split
+      """
+      
+ get_beene_embeddings(data):
+      """
+      retuns the embedding learn by the model for the **data**
+      
+      Parameters
+      data: np.ndarray
+      """
+ 
 ```
 
