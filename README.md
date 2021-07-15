@@ -72,4 +72,7 @@ An example if provided here for calculating LISI metric from data. [example_1.py
 ### calculating kBET metric with non-linear embedding
 
 The [kBET](https://github.com/theislab/kBET/) does not have any python implementation available and available only in R. For calculate kBET using non-linear embedding, the learned embedding must be transferred to R enviroment for calculation. 
+And example of calculating kBET using non linear embedding is give here [example_2.ipynb](https://github.com/ashiq24/BEENE/blob/main/beene/example_2.ipynb)
+
+
 
