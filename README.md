@@ -127,6 +127,11 @@ print(np.median(lisi_values))
 
 ### calculating kBET metric with non-linear embedding
 
+### Additonal Requirements
+R >= 4.1.0
+
+rpy2 >= 3.4.0
+
 The [kBET](https://github.com/theislab/kBET/) does not have any python implementation available and available only in R. For calculate kBET using non-linear embedding, the learned embedding must be transferred to R enviroment for calculation. 
 And example of calculating kBET using non linear embedding is give here [example_2.ipynb](https://github.com/ashiq24/BEENE/blob/main/beene/example_2.ipynb). It uses the **rpy2** package needs to be installed separately using the following command.
 ```console
