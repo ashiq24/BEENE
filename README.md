@@ -30,7 +30,7 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
         embedding_dimension: int, Dimension of the BEENE Embedding
         number_of_batches: int, Number of classes of the Batch variable
         number_of_biological_variables: int,  Number of classes of the Biological variable
-        reconstruction_weight: float, weight for acutoencoder reconstruction loss
+        reconstruction_weight: float, weight for acut-encoder reconstruction loss
         batch_weight: float,  weight for batch label prediction error 
         bio_weight: float, weight of biological label prediction error
         islarge : bool, Set to true for high dimensional dataset. Model uses additional dropout in the 
@@ -39,7 +39,7 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
  evaluate_batch_iLisi(data, batch_var, bio_var, seed):
 
       """
-      Compute the iLISI metric on the data. The data is split into testm training, and validation
+      Compute the iLISI metric on the data. The data is split into test, training, and validation
       set. The model defined by the user is trained by the training set. The best performing model
       is selected by the validation set. And the iLISI index is calculated on the test set.
       
@@ -130,7 +130,8 @@ print(np.median(lisi_values))
 ### Additonal Requirements
 R >= 4.1.0
 
-rpy2 >= 3.4.0
+rpy2 >= 3.4.0 (For seamless working this package Linax system is recommended)
+
 
 The [kBET](https://github.com/theislab/kBET/) does not have any python implementation available and available only in R. For calculate kBET using non-linear embedding, the learned embedding must be transferred to R enviroment for calculation. 
 And example of calculating kBET using non linear embedding is give here [example_2.ipynb](https://github.com/ashiq24/BEENE/blob/main/beene/example_2.ipynb). It uses the **rpy2** package needs to be installed separately using the following command.
