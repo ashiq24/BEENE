@@ -11,11 +11,7 @@
  ```
  
 ## Usage
-### calculating LISI metric with non-linear embedding
-
-Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package LISI metric can be calculated using non-linear embedding directly from the data. The class **beene_model** contains all necessery function implemented
-
-#### Description and parameters of major functions
+### Description and parameters of major functions
 ```java
 get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,  number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
         """
@@ -66,6 +62,13 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
       """
  
 ```
+### Getting BEENE Embedding
+
+### calculating LISI metric with non-linear embedding
+
+Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package LISI metric can be calculated using non-linear embedding directly from the data. The class **beene_model** contains all necessery function implemented
+
+
 An example is provided here for calculating LISI metric from data [example_1.py](https://github.com/ashiq24/BEENE/blob/main/beene/example_1.py). It is explained below.
 
 Importing beene package and other required modules for data loading, generation and preprocessing. The **beene.py** should in the same folder as your python script.
