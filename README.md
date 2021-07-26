@@ -63,10 +63,10 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
     train_batch: np.ndarray, Training set: Corresponding batch variables 
     train_bio: np.ndarray, Training set: Corresponding Biological variables (None if biological variables are absent)
     val_x: np.ndarray, Validation set: Gene expressing 
-    val_batch: np.ndarray, Validation set:
-    val_bio: np.ndarray, 
-    num_epochs: int,
-    batch_size : int= 32
+    val_batch: np.ndarray, Validation set: Corresponding batch variables
+    val_bio: np.ndarray, Validation set: Corresponding Biological variables (None if biological variables are absent)
+    num_epochs: int, Number of epochs to train the model
+    batch_size : int= 32, batch size
     
     """
  
