@@ -66,7 +66,7 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
       """
  
 ```
-An example if provided here for calculating LISI metric from data [example_1.py](https://github.com/ashiq24/BEENE/blob/main/beene/example_1.py). It is explained below.
+An example is provided here for calculating LISI metric from data [example_1.py](https://github.com/ashiq24/BEENE/blob/main/beene/example_1.py). It is explained below.
 
 Importing beene package and other required modules for data loading, generation and preprocessing. The **beene.py** should in the same folder as your python script.
 ```python
