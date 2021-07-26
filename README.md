@@ -218,7 +218,7 @@ R >= 4.1.0
 
 rpy2 >= 3.4.0 (For seamless working this package Linux system is recommended)
 
-kBET
+kBET (Follow the instructions given [here](https://github.com/theislab/kBET/) for installation)
 
 
 The [kBET](https://github.com/theislab/kBET/) does not have any python implementation available and available only in R. For calculate kBET using non-linear embedding, the learned embedding must be transferred to R enviroment for calculation. 
