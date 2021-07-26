@@ -13,6 +13,8 @@
 ## Usage
 ### Description and parameters of major functions
 ```java
+The class beene_model have all necessary functions for building BEENE model, training the model, getting the embeddings and as well as calculating iLISI values.
+Some member functions of this class are:
 get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,  number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
         """
         Creates and return the BEENE model.
@@ -52,7 +54,22 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
               it must be a 1D array of zeros and ones denoting the biological class for each samples in the data
       seed: int. Random state for the split
       """
-      
+ train_model(train_x, train_batch,train_bio,val_x,val_batch,val_bio, num_epochs, batch_size = 32):
+    """
+    Traing the defined BEENE model
+    
+    Parameters:
+    train_x: np.ndarray, Training set: Gene expressing 
+    train_batch: np.ndarray, Training set: Corresponding batch variables 
+    train_bio: np.ndarray, Training set: Corresponding Biological variables (None if biological variables are absent)
+    val_x: np.ndarray, Validation set: Gene expressing 
+    val_batch: np.ndarray, Validation set:
+    val_bio: np.ndarray, 
+    num_epochs: int,
+    batch_size : int= 32
+    
+    """
+ 
  get_beene_embeddings(data):
       """
       retuns the embedding learn by the model for the **data**
