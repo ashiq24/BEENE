@@ -12,7 +12,7 @@
  
 ## Usage
 ### Description and parameters of major functions
-```java
+```python
 The class beene_model have all necessary functions for building BEENE model, training the model, getting the embeddings and as well as calculating iLISI values.
 Some member functions of this class are:
 get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,  number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
@@ -79,8 +79,74 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
       """
  
 ```
-### Getting BEENE Embedding
+### Generating and Storing BEENE-Embeddings
+Our tool BEENE creates low dimesional embeddings (BEENE-Embeddings) from RNAseq data which are very effective for batch effect assessment. An example for generating and storing BEENE-Embeddings from RNA-seq data is shown below
 
+Importing necessery packages
+
+```python
+from beene import beene_model
+from numpy import random
+from sklearn.preprocessing import OneHotEncoder
+import numpy as np
+from sklearn.model_selection import train_test_split
+```
+
+creating simulated  data with 3000 sample and 100 genes per sample, with 2 biological categories and 3 batches.
+```python
+Xt = random.uniform(-1,1,(3000,100))
+# biological variables
+yt = random.randint(0,2,3000)
+# batches 
+bt = random.randint(0,3,3000)
+````
+Creating the BEENE model
+with embedding dimension of 5
+Encoder Network: Size of first hiddent layer is 50, and second hidden layer is 20
+Encoder and Decoder networks are symetric.
+reconstruction loss weight: 1
+batch prediction lossweight: 2
+biological varibale prediction loss weight: 2
+
+```python
+my_model = beene_model()
+my_model.get_hybrid_model_1(100,[50,20],5,3,2,1,2,1)
+```
+
+Creating one hot vectors for batch variables. As the Number of classes in biological variables is 2, creating one-hot vector is not necessery
+
+```python
+bt = np.reshape(bt,(-1,1))
+enc_bi = OneHotEncoder(handle_unknown='ignore')
+enc_bi.fit(bt)
+bt = enc_bi.transform(bt)
+bt = bt.todense()
+```
+
+
+Creating training-validation-test split
+```python
+X_train, X_test, Y_Platform_train, Y_Platform_test,Y_ER_train,Y_ER_test = train_test_split(
+                                          Xt, bt, yt,test_size=0.20,random_state=4)
+
+#Getting separate validation data
+X_train, X_val, Y_Platform_train, Y_Platform_val,Y_ER_train,Y_ER_val = train_test_split(
+                                           X_train, Y_Platform_train, Y_ER_train ,test_size=0.25,random_state=4)
+```
+Training the model for 300 epochs
+```python
+my_model.train_model(X_train,Y_Platform_train,Y_ER_train,X_val,Y_Platform_val,Y_ER_val,100)
+```
+
+Saving embedding for the test set. Embeddings will be saved in the 'txt' format. Emebedings for each of the cells will be stored along
+the rows. Values are space separated. 
+
+```python
+test_embedding = my_model.get_beene_embeddings(X_test)
+np.savetxt('embedding.txt', test_embedding, fmt='%f')
+# for loading 
+loaded_embedding = np.loadtxt('embedding.txt', dtype=float)
+```
 ### calculating LISI metric with non-linear embedding
 
 Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package LISI metric can be calculated using non-linear embedding directly from the data. The class **beene_model** contains all necessery function implemented
