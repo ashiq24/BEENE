@@ -151,8 +151,7 @@ class beene_model:
 
         Parameters:
 
-        number_of_genes: int, Number of gene per sample in the data 
-        hidden_layer_dimensions: list, hidden_layer_dimensions[0] is the dimension of 1st hidden layer hidden_layer_dimensions[1] is the dimension of 2nd hidden layer.    
+        number_of_genes: int, Number of gene per sample in the data hidden_layer_dimensions: list, hidden_layer_dimensions[0] is the dimension of 1st hidden layer hidden_layer_dimensions[1] is the dimension of 2nd hidden layer.    
         embedding_dimension: int, Dimension of the BEENE Embedding
         number_of_batches: int, Number of classes of the Batch variable
         number_of_biological_variables: int,  Number of classes of the Biological variable
@@ -192,6 +191,10 @@ class beene_model:
         else:
             batch_loss = "categorical_crossentropy"
             batch_output = tf.keras.layers.Dense(number_of_batches,activation='softmax',name='batch_output',  kernel_regularizer='l2')(embedding)
+        
+        '''
+        creating placeholder for completing the keras computatonal graph if biologial variables are absent
+        '''
 
         if number_of_biological_variables == 0:
           bio_weight = 0
@@ -241,6 +244,14 @@ class beene_model:
                     batch_size : int= 32):
 
         start = time.process_time()    
+        
+        '''
+        creating placeholder for completing the keras computatonal graph
+        '''
+
+        if train_bio is None:
+            train_bio = np.zeros_like(train_batch)
+            val_bio = np.zeros_like(val_batch)
 
         self. hybrid_model.fit( train_x, 
                         {"de_output": train_x, "batch_output": train_batch,"bio_output":train_bio},
