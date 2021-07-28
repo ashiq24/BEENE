@@ -17,7 +17,7 @@ The class beene_model has all the necessary functions for building the BEENE mod
 Some member functions of this class are:
 get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,  number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
         """
-        Creates and return the BEENE model.
+        Creates and returns the BEENE model.
        
         
         Parameters:
@@ -38,7 +38,7 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
 
       """
       Compute the iLISI metric on the data. The data is split into test, training, and validation
-      set. The model defined by the user is trained by the training set. The best performing model
+      set. The model defined by the user is trained by the training set. The best-performing model
       is selected by the validation set. And the iLISI index is calculated on the test set.
       
       returns: iLISI values of each of the samples in the randomly choosen test set using BEENE embedding
@@ -48,15 +48,15 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
       batch_var: numpy array. For more than two categories, it must be one hot representation of 
                 batch labels for each of the samples in the data and must be a dense matrix. For 
                 two categories, it must be a 1D array of zeros and ones denoting batch association 
-                for each samples in the data
+                for each of the samples in the data
       bio_var: numpy array. For more than two categories, it must be one hot representation of batch 
               labels for each of the samples in the data and must be a dense matrix. For two categories,
-              it must be a 1D array of zeros and ones denoting the biological class for each samples in the data
+              it must be a 1D array of zeros and ones denoting the biological class for each of the samples in the data
       seed: int. Random state for the split
       """
  train_model(train_x, train_batch,train_bio,val_x,val_batch,val_bio, num_epochs, batch_size = 32):
     """
-    Traing the defined BEENE model
+    Training the defined BEENE model
     
     Parameters:
     train_x: np.ndarray, Training set: Gene expressing 
@@ -72,7 +72,7 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
  
  get_beene_embeddings(data):
       """
-      retuns the embedding learn by the model for the **data**
+      returns the embedding learn by the model for the **data**
       
       Parameters
       data: np.ndarray
@@ -80,9 +80,9 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
  
 ```
 ### Generating and Storing BEENE-Embeddings
-Our tool BEENE creates low dimesional embeddings (BEENE-Embeddings) from RNAseq data which are very effective for batch effect assessment. An example for generating and storing BEENE-Embeddings from RNA-seq data is shown below
+Our tool BEENE creates low dimensional embeddings (BEENE-Embeddings) from RNAseq data which are very effective for batch effect assessment. An example for generating and storing BEENE-Embeddings from RNA-seq data is shown below
 
-Importing necessery packages
+Importing necessary packages
 
 ```python
 from beene import beene_model
@@ -102,18 +102,18 @@ bt = random.randint(0,3,3000)
 ````
 Creating the BEENE model
 with embedding dimension of 5
-Encoder Network: Size of the first hiddent layer is 50, and the second hidden layer is 20
-The Encoder and the Decoder networks are symetric.
+Encoder Network: The size of the first hidden layer is 50, and the second hidden layer is 20
+The Encoder and the Decoder networks are symmetric.
 reconstruction loss weight: 1
-batch prediction lossweight: 2
-biological varibale prediction loss weight: 2
+batch prediction loss weight: 2
+biological variables prediction loss weight: 2
 
 ```python
 my_model = beene_model()
 my_model.get_hybrid_model_1(100,[50,20],5,3,2,1,2,1)
 ```
 
-Creating one hot vectors for batch variables. As the Number of classes in biological variables is 2, creating one-hot vector is not necessery
+Creating one-hot vectors for batch variables. As the number of classes in biological variables is 2, creating one-hot vectors is not necessary
 
 ```python
 bt = np.reshape(bt,(-1,1))
@@ -138,8 +138,8 @@ Training the model for 300 epochs
 my_model.train_model(X_train,Y_Platform_train,Y_ER_train,X_val,Y_Platform_val,Y_ER_val,100)
 ```
 
-Saving embedding for the test set. Embeddings will be saved in the 'txt' format. Emebedings for each of the cells will be stored along
-the rows. Values are space separated. 
+Saving embedding for the test set. Embeddings will be saved in the 'txt' format. Embeddings for each of the cells will be stored along
+the rows. Values are space-separated. 
 
 ```python
 test_embedding = my_model.get_beene_embeddings(X_test)
@@ -149,12 +149,12 @@ loaded_embedding = np.loadtxt('embedding.txt', dtype=float)
 ```
 ### calculating LISI metric with non-linear embedding
 
-Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package LISI metric can be calculated using non-linear embedding directly from the data. The class **beene_model** contains all necessery function implemented
+Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package, LISI metric can be calculated using non-linear embedding directly from the data. The class **beene_model** contains all necessary functions implemented
 
 
-An example is provided here for calculating LISI metric from data [example_1.py](https://github.com/ashiq24/BEENE/blob/main/beene/example_1.py). It is explained below.
+An example is provided here for calculating LISI metrics from data [example_1.py](https://github.com/ashiq24/BEENE/blob/main/beene/example_1.py). It is explained below.
 
-Importing beene package and other required modules for data loading, generation and preprocessing. The **beene.py** should in the same folder as your python script.
+Importing the **beene** package and other required modules for data loading, generation, and preprocessing. The **beene.py** should be in the same folder as your python script.
 ```python
 from beene import beene_model
 from numpy import random
@@ -187,7 +187,7 @@ my_model.get_hybrid_model_1(100,[50,20],5,3,2,1,2,1)
 
 ```
 
-Creating the onehot vector for the batch variables.
+Creating the one-hot vector for the batch variables.
 
 ```python
 bt = np.reshape(bt,(-1,1))
@@ -197,7 +197,7 @@ bt = enc_bi.transform(bt)
 bt = bt.todense()
 
 # Number of classes in biological variables is 2. 
-# So creating one-hot vector is not necessery
+# So creating one-hot vector is not necessary
 
 ```
 
@@ -211,7 +211,7 @@ print(np.median(lisi_values))
 ```
 
 
-### calculating kBET metric with non-linear embedding
+### calculating the kBET metric with non-linear embedding
 
 ### Additonal Requirements
 R >= 4.1.0
@@ -221,8 +221,8 @@ rpy2 >= 3.4.0 (For seamless working this package Linux system is recommended)
 kBET (Follow the instructions given [here](https://github.com/theislab/kBET/) for installation)
 
 
-The [kBET](https://github.com/theislab/kBET/) does not have any python implementation available and available only in R. For calculate kBET using non-linear embedding, the learned embedding must be transferred to R enviroment for calculation. 
-And example of calculating kBET using non linear embedding is give here [example_2.ipynb](https://github.com/ashiq24/BEENE/blob/main/beene/example_2.ipynb). It uses the **rpy2** package needs to be installed separately using the following command.
+The [kBET](https://github.com/theislab/kBET/) does not have any python implementation available and is available only in R. To calculate kBET using non-linear embedding, the learned embedding must be transferred to R environment for calculation. 
+An example of calculating kBET using non-linear embedding is given here [example_2.ipynb](https://github.com/ashiq24/BEENE/blob/main/beene/example_2.ipynb). It uses the **rpy2** package, that needs to be installed separately using the following command.
 ```console
 pip install rpy2
 ```
