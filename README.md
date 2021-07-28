@@ -1,5 +1,5 @@
 # BEENE
-**BEENE** (Batch Effect Esitimation using Non-linear Embeddings) is a deep learning based technique for estimating batch effect in RNA-seq data. The variation introduced in the data by techniqal non-biological factors is called batch effect. It is very crutical to detect the extent of batch effect present in the data and remove it for unbiased analysis. Current batch effect estimatimation techniques depends on local distribution of cells in the PC space, which fail to camputre highly non-linear batch effect. To the best of our knowledge , BEENE is the first technique that provide non-linear embedding for batch effect estimation and is shwon to capture non-linear batch efect in RNA-seq data.
+**BEENE** (Batch Effect Esitimation using Non-linear Embeddings) is a deep learning based technique for estimating batch effect in RNA-seq data. The variations introduced in the data by techniqal non-biological factors are called batch effect. It is very crutical to detect the extent of batch effect present in the data and remove it for an unbiased analysis. Current the batch effect estimatimation techniques depends on the local distribution of cells in the PC space, which fail to camputre highly non-linear batch effect. To the best of our knowledge , BEENE is the first technique that provide non-linear embedding for batch effect estimation and is shwon to capture non-linear batch efect in RNA-seq data.
 
 ## Requirements
  Python >= 3.7.0
@@ -13,7 +13,7 @@
 ## Usage
 ### Description and parameters of major functions
 ```python
-The class beene_model have all necessary functions for building BEENE model, training the model, getting the embeddings and as well as calculating iLISI values.
+The class beene_model has all the necessary functions for building the BEENE model, training the model, getting the embeddings, and as well as calculating iLISI values.
 Some member functions of this class are:
 get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,  number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
         """
@@ -21,14 +21,14 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
        
         
         Parameters:
-        number_of_genes: int, Number of gene per sample in the data 
+        number_of_genes: int, Number of genes per sample in the data 
         hidden_layer_dimensions: list, hidden_layer_dimensions[0] is the dimension of 1st hidden layer and 
                                  hidden_layer_dimensions[1] is the dimension of 2nd hidden layer.
        
         embedding_dimension: int, Dimension of the BEENE Embedding
         number_of_batches: int, Number of classes of the Batch variable
         number_of_biological_variables: int,  Number of classes of the Biological variable
-        reconstruction_weight: float, weight for acut-encoder reconstruction loss
+        reconstruction_weight: float, weight for auto-encoder reconstruction loss
         batch_weight: float,  weight for batch label prediction error 
         bio_weight: float, weight of biological label prediction error
         islarge : bool, Set to true for high dimensional dataset. Model uses additional dropout in the 
@@ -44,7 +44,7 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
       returns: iLISI values of each of the samples in the randomly choosen test set using BEENE embedding
       
       Parameters:
-      data: 2D numpy array. Each row represents a sample and each column represents a Gene
+      data: 2D numpy array. Each row represents a sample and each column represents a Gene.
       batch_var: numpy array. For more than two categories, it must be one hot representation of 
                 batch labels for each of the samples in the data and must be a dense matrix. For 
                 two categories, it must be a 1D array of zeros and ones denoting batch association 
@@ -92,7 +92,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 ```
 
-creating simulated  data with 3000 sample and 100 genes per sample, with 2 biological categories and 3 batches.
+creating simulated  data with 3000 samples and 100 genes per sample, with 2 biological categories and 3 batches.
 ```python
 Xt = random.uniform(-1,1,(3000,100))
 # biological variables
@@ -102,8 +102,8 @@ bt = random.randint(0,3,3000)
 ````
 Creating the BEENE model
 with embedding dimension of 5
-Encoder Network: Size of first hiddent layer is 50, and second hidden layer is 20
-Encoder and Decoder networks are symetric.
+Encoder Network: Size of the first hiddent layer is 50, and the second hidden layer is 20
+The Encoder and the Decoder networks are symetric.
 reconstruction loss weight: 1
 batch prediction lossweight: 2
 biological varibale prediction loss weight: 2
@@ -226,7 +226,7 @@ And example of calculating kBET using non linear embedding is give here [example
 ```console
 pip install rpy2
 ```
-The documentation for rpy2 can be found [here](https://rpy2.github.io/doc/latest/html/index.html)
+The documentation for **rpy2** can be found [here](https://rpy2.github.io/doc/latest/html/index.html)
 
 ## Bug Report
 ashiqbuet14@gmail.com
