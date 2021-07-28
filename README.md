@@ -11,7 +11,7 @@
  ```
  
 ## Usage
-### Description and parameters of major functions
+### Description and Parameters of Major Functions
 The class _beene_model_ has all the necessary functions for building the BEENE model, training the model, getting the embeddings, and as well as calculating iLISI values. Some member functions of this class are:
 ```PYTHON
 get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,  number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
@@ -146,7 +146,7 @@ np.savetxt('embedding.txt', test_embedding, fmt='%f')
 # for loading 
 loaded_embedding = np.loadtxt('embedding.txt', dtype=float)
 ```
-### calculating LISI metric with non-linear embedding
+### Calculating LISI Metric with Non-linear Embedding
 
 Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package, LISI metric can be calculated using non-linear embedding directly from the data. The class **beene_model** contains all necessary functions implemented
 
@@ -210,7 +210,7 @@ print(np.median(lisi_values))
 ```
 
 
-### calculating the kBET metric with non-linear embedding
+### Calculating the kBET Metric with Non-linear Embedding
 
 ### Additional Requirements
 R >= 4.1.0
