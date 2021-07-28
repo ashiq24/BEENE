@@ -30,7 +30,7 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
         reconstruction_weight: float, weight for auto-encoder reconstruction loss
         batch_weight: float,  weight for batch label prediction error 
         bio_weight: float, weight of biological label prediction error
-        islarge : bool, Set to true for high dimensional dataset. Model uses additional dropout in the 
+        islarge : bool, Set to true for high dimensional dataset. The model uses a higher dropout rate in the 
                  input layer for high dimensional data.
         """
  evaluate_batch_iLisi(data, batch_var, bio_var, seed):
@@ -40,7 +40,7 @@ get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension
       set. The model defined by the user is trained by the training set. The best-performing model
       is selected by the validation set. And the iLISI index is calculated on the test set.
       
-      returns: iLISI values of each of the samples in the randomly choosen test set using BEENE embedding
+      returns: iLISI values of each of the samples in the randomly chosen test set using BEENE embedding
       
       Parameters:
       data: 2D numpy array. Each row represents a sample and each column represents a Gene.
@@ -212,7 +212,7 @@ print(np.median(lisi_values))
 
 ### calculating the kBET metric with non-linear embedding
 
-### Additonal Requirements
+### Additional Requirements
 R >= 4.1.0
 
 rpy2 >= 3.4.0 (For seamless working this package Linux system is recommended)
@@ -221,7 +221,7 @@ kBET (Follow the instructions given [here](https://github.com/theislab/kBET/) fo
 
 
 The [kBET](https://github.com/theislab/kBET/) does not have any python implementation available and is available only in R. To calculate kBET using non-linear embedding, the learned embedding must be transferred to R environment for calculation. 
-An example of calculating kBET using non-linear embedding is given here [example_2.ipynb](https://github.com/ashiq24/BEENE/blob/main/beene/example_2.ipynb). It uses the **rpy2** package, that needs to be installed separately using the following command.
+An example of calculating kBET using non-linear embedding is given here [example_2.ipynb](https://github.com/ashiq24/BEENE/blob/main/beene/example_2.ipynb). It uses the **rpy2** package, which needs to be installed separately using the following command.
 ```console
 pip install rpy2
 ```
