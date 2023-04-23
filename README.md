@@ -79,6 +79,8 @@ number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight
       """
  
 ```
+#### Choice of Hyperparameters
+
 ### Generating and Storing BEENE-Embeddings
 Our tool BEENE creates low dimensional embeddings (BEENE-Embeddings) from RNAseq data which are very effective for batch effect assessment. An example for generating and storing BEENE-Embeddings from RNA-seq data is shown below
 
