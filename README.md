@@ -14,7 +14,8 @@
 ### Description and Parameters of Major Functions
 The class _beene_model_ has all the necessary functions for building the BEENE model, training the model, getting the embeddings, and as well as calculating iLISI values. Some member functions of this class are:
 ```PYTHON
-get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,  number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
+get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,\
+number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
         """
         Creates and returns the BEENE model.
        
