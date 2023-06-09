@@ -82,6 +82,13 @@ number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight
 ### Choice of Hyperparameters
 *reconstruction_weight*, *batch_weight*, and *bio_weight* are three important parameters of BEENE. When *batch_weight* is set comparatively higher than *reconstruction_weight* and  *bio_weight*, the cell embeddings will be more tightly clustered by thier respective batches if batch effect is present in the data. In other words, BEENE will be more sensetive to the batch effect if the *batch_weight* parameter is set higher.
 The choice of these hyperparameters is dependent on the data and the downstream application. In general, when biological varibale is present, *reconstruction_weight* and  *bio_weight* should be equal and  *batch_weight* should be double of the *bio_weight*. And if biological varibale is not present, *reconstruction_weight* and  *batch_weight* should be set equal.
+| Biological Feature | $\lambda_1$ | $\lambda_2$ | $\lambda_3$ | Dimensionality reduction applied?                                 |
+|--------------------|:-----------:|:-----------:|:-----------:|-------------------------------------------------------------------|
+| Present            |    1.000    |     2.0     |     1.0     | Yes (i.e., the number features is in the range of a few hundreds) |
+|                    |    0.001    |     5.0     |     5.0     | No (i.e., the number features is in the range of thousands)       |
+| Absent             |    1.000    |     1.0     |      -      | Yes                                                               |
+|                    |    0.001    |     5.0     |      -      | No                                                                |
+
 ### Generating and Storing BEENE-Embeddings
 Our tool BEENE creates low dimensional embeddings (BEENE-Embeddings) from RNAseq data which are very effective for batch effect assessment. An example for generating and storing BEENE-Embeddings from RNA-seq data is shown below
 
