@@ -82,7 +82,7 @@ number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight
 ### Choice of Hyperparameters
 *reconstruction_weight* ($\lambda_1$), *batch_weight* ($\lambda_2$), and *bio_weight* ($\lambda_3$) are three important parameters of BEENE. When *batch_weight* is set comparatively higher than *reconstruction_weight* and  *bio_weight*, the cell embeddings will be more tightly clustered by thier respective batches if batch effect is present in the data. In other words, BEENE will be more sensetive to the batch effect if the *batch_weight* parameter is set higher.
 
-The choice of these hyperparameters is dependent on the data and the downstream application. We recommend to use  $\lambda_1 = \lambda_3 = 1$ and $\lambda_2 = 2$ when the dataset is compressed and has number of features in the range of hundreds. When the dataset is uncompressed with number of features in the range of thousands, the value of $\lambda_1$ should be decreased accordingly (eg 1/1000).
+The choice of these hyperparameters is dependent on the data and the downstream application. We recommend to use  $\lambda_1 = \lambda_3 = 1$ and $\lambda_2 = 2$ when some dimensionality reduction technique is used to reduce the number of features to hundreds. When the dataset is uncompressed with number of features in the range of thousands, the value of $\lambda_1$ should be decreased accordingly (eg 1/1000).
 
 | Biological Feature | $\lambda_1$ | $\lambda_2$ | $\lambda_3$ | Dimensionality reduction applied?                                 |
 |--------------------|:-----------:|:-----------:|:-----------:|-------------------------------------------------------------------|
