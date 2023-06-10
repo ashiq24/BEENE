@@ -91,7 +91,7 @@ The choice of these hyperparameters is dependent on the data and the downstream 
 | Absent             |    1.000    |     1.0     |      -      | Yes                                                               |
 |                    |    0.001    |     5.0     |      -      | No                                                                |
 
-Table 1: Guidlines for Hyperparameter Selection
+                            Table 1: Guidlines for Hyperparameter Selection
 ### Generating and Storing BEENE-Embeddings
 Our tool BEENE creates low dimensional embeddings (BEENE-Embeddings) from RNAseq data which are very effective for batch effect assessment. An example for generating and storing BEENE-Embeddings from RNA-seq data is shown below
 
