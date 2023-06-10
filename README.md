@@ -82,7 +82,7 @@ number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight
 ### Choice of Hyperparameters
 *reconstruction_weight* ($\lambda_1$), *batch_weight* ($\lambda_2$), and *bio_weight* ($\lambda_3$) are three important parameters of BEENE. When *batch_weight* is set comparatively higher than *reconstruction_weight* and  *bio_weight*, the cell embeddings will be more tightly clustered by thier respective batches if batch effect is present in the data. In other words, BEENE will be more sensetive to the batch effect if the *batch_weight* parameter is set higher.
 
-The choice of these hyperparameters is dependent on the data and the downstream application. We recommend to use  $\lambda_1 = \lambda_3 = 1$ and $\lambda_2 = 2$ when a dimensionality reduction technique has been used to reduce the number of features to hundreds.  When a dimensionality reduction technique has been applied to reduce the number of features (typically, in the range of hundreds). Conversely, if the dataset is used without employing any dimensionality reduction technique and contains thousands of features, it is recommended to decrease the value of \lambda1 accordingly (e.g., by a factor of 1/1000).
+The choice of these hyperparameters is dependent on the data and the downstream application. In Table 1 we provide a guideline for choosing these hyperparameters. We recommend to use  $\lambda_1 = \lambda_3 = 1$ and $\lambda_2 = 2$ when a dimensionality reduction technique has been used to reduce the number of features to hundreds.  When a dimensionality reduction technique has been applied to reduce the number of features (typically, in the range of hundreds). Conversely, if the dataset is used without employing any dimensionality reduction technique and contains thousands of features, it is recommended to decrease the value of \lambda1 accordingly (e.g., by a factor of 1/1000).
 
 | Biological Feature | $\lambda_1$ | $\lambda_2$ | $\lambda_3$ | Dimensionality reduction applied?                                 |
 |--------------------|:-----------:|:-----------:|:-----------:|-------------------------------------------------------------------|
@@ -91,6 +91,7 @@ The choice of these hyperparameters is dependent on the data and the downstream 
 | Absent             |    1.000    |     1.0     |      -      | Yes                                                               |
 |                    |    0.001    |     5.0     |      -      | No                                                                |
 
+Table 1: Guidlines for Hyperparameter Selection
 ### Generating and Storing BEENE-Embeddings
 Our tool BEENE creates low dimensional embeddings (BEENE-Embeddings) from RNAseq data which are very effective for batch effect assessment. An example for generating and storing BEENE-Embeddings from RNA-seq data is shown below
 
