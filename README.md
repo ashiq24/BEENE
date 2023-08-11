@@ -14,8 +14,9 @@
 ### Description and Parameters of Major Functions
 The class _beene_model_ has all the necessary functions for building the BEENE model, training the model, getting the embeddings, and as well as calculating iLISI values. Some member functions of this class are:
 ```PYTHON
-get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,  number_of_batches,\
-number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight, islarge= False):
+get_hybrid_model_1(number_of_genes, hidden_layer_dimensions, embedding_dimension,\
+                   number_of_batches, number_of_biological_variables, reconstruction_weight,\
+                   batch_weight, bio_weight, islarge= False):
         """
         Creates and returns the BEENE model.
        
@@ -30,8 +31,8 @@ number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight
         number_of_biological_variables: int,  Number of classes of the Biological variable
         reconstruction_weight: float, weight for auto-encoder reconstruction loss
         batch_weight: float,  weight for batch label prediction error 
-        bio_weight: float, weight of biological label prediction error
-        islarge : bool, Set to true for high dimensional dataset. The model uses a higher dropout rate in the 
+        bio_weight: float, the weight of biological label prediction error
+        islarge : bool, Set to true for the high dimensional dataset. The model uses a higher dropout rate in the 
                  input layer for high dimensional data.
         """
  evaluate_batch_iLisi(data, batch_var, bio_var, seed):
@@ -54,7 +55,8 @@ number_of_biological_variables,  reconstruction_weight, batch_weight, bio_weight
               it must be a 1D array of zeros and ones denoting the biological class for each of the samples in the data
       seed: int. Random state for the split
       """
- train_model(train_x, train_batch,train_bio,val_x,val_batch,val_bio, num_epochs, batch_size = 32):
+ train_model(train_x, train_batch,train_bio,val_x,\
+             val_batch,val_bio, num_epochs, batch_size = 32):
     """
     Training the defined BEENE model
     
