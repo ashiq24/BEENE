@@ -246,8 +246,11 @@ The documentation for **rpy2** can be found [here](https://rpy2.github.io/doc/la
 ## Data Availability
 
 Simulated data: [Data1](https://drive.google.com/file/d/1-0pTbMypr_eyWg1ngSMn7QLKM4jXYM0t/view?usp=sharing), [Data2](https://drive.google.com/file/d/1d6GuzgWcB0spgsBpm9wdWHZNlnZto0I_/view?usp=sharing)
+
 mESC data: [source](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65525)
+
 PMBC Data: Processed data [source](https://github.com/immunogenomics/harmony2019/tree/master/data/figure4)
+
 Pancreatic islet cells: Processed data [source](https://github.com/immunogenomics/harmony2019/tree/master/data/figure5)
 
 
