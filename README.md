@@ -164,7 +164,7 @@ loaded_embedding = np.loadtxt('embedding.txt', dtype=float)
 ```
 ### Calculating LISI Metric with Non-linear Embedding
 
-Lisi is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package, LISI metric can be calculated using non-linear embedding directly from the data. The class **beene_model** contains all necessary functions implemented
+LISI is a batch effect estimation metric [Link](https://github.com/immunogenomics/LISI). With the **BEENE** package, LISI metric can be calculated using non-linear embedding directly from the data. The class **beene_model** contains all necessary functions implemented
 
 
 An example is provided here for calculating LISI metrics from data [example_1.py](https://github.com/ashiq24/BEENE/blob/main/beene/example_1.py). It is explained below.
